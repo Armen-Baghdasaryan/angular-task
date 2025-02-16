@@ -40,6 +40,7 @@ export class SliderModalComponent implements OnInit, OnDestroy {
 
     handleClose() {
         this.carsService.toggleModalState(false)
+        this.imgIndex = 0
     }
 
     changeImages(index: number) {

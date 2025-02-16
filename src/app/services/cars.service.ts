@@ -11,6 +11,7 @@ export class CarsService {
     public images = new BehaviorSubject<string[]>([]);
     public modalState = new BehaviorSubject<boolean>(false);
 
+    // Instead of BE data
     getCars(): Observable<ICar[]> {
         return of([
             {
