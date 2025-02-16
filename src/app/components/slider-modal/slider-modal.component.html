@@ -1,0 +1,30 @@
+<div class="modal_wrapper" [ngClass]="{ 'modal_open': modalState }">
+    <div class="modal_content">
+        <img class="modal_close" width="32" height="32" alt="icon" src="assets/icons/arrow-close.svg"
+            (click)="handleClose()" />
+        <div class="modal_slider">
+            <p class="slider_count">{{imgIndex + 1}}/{{images.length}}</p>
+            <div class="slider_main">
+                <img width="32" height="32" src="assets/icons/arrow-left.svg" alt="arrow" class="slider_arrow"
+                    [ngClass]="{ 'slider_arrow-disabled': imgIndex === 0 }" (click)="handleSlide('prev')" />
+                <div class="main_img_container" (touchstart)="handleTouchStart($event)"
+                    (touchmove)="handleTouchMove($event)" (touchend)="handleTouchEnd($event)">
+                    <img class="slider_main_img" [ngClass]="isFading ? 'fade-out' : 'fade-in'" [src]="images[imgIndex]"
+                        alt="main-img" />
+                </div>
+                <img width="32" height="32" src="assets/icons/arrow-left.svg" alt="arrow"
+                    class="slider_arrow slider_arrow-next"
+                    [ngClass]="{ 'slider_arrow-disabled': imgIndex === images.length - 1}"
+                    (click)="handleSlide('next')" />
+            </div>
+            <div class="slider_images">
+                <div class="images_inner">
+                    <div class="slider_img" *ngFor="let path of images; let idx = index">
+                        <img [src]="path" alt="slide-img" [ngClass]="{ 'active': imgIndex === idx }"
+                            (click)="onSLideImgClick(idx)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

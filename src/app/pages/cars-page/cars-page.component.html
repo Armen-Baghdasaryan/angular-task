@@ -1,0 +1,6 @@
+<div class="cars_page_wrapper">
+    <div class="car_items">
+        <app-car-item *ngFor="let car of cars$ | async; let i = index" [car]="car"></app-car-item>
+        <app-slider-modal></app-slider-modal>
+    </div>
+</div>
